@@ -1,0 +1,241 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    background: #000;
+}
+
+/* Header Styling */
+header {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: url('header-bg.jpg') no-repeat center center/cover;
+    color: #fff;
+    perspective: 800px;
+    font-family: 'Poppins', sans-serif; /* Ensure the right font is applied */
+}
+
+header .hero {
+    text-align: center;
+    color: #fff;
+}
+
+header .hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    transform: translateY(-50px) rotateX(-10deg);
+    animation: fadeInUp 2s ease-out forwards; /* Use forwards to keep the final state */
+}
+
+header .hero p {
+    font-size: 1.5rem;
+    transform: translateY(20px) rotateX(5deg);
+    animation: fadeInUp 3s ease-out forwards; /* Use forwards to keep the final state */
+}
+
+/* Updated Animation Effects */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px) rotateX(5deg); }
+    to { opacity: 1; transform: translateY(0) rotateX(0); }
+}
+
+/* Media Section */
+.media-section {
+    padding: 2rem;
+    text-align: center;
+    background: #111;
+}
+
+.media-section .image-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Content Section Styling */
+.content {
+    padding: 3rem 1rem;
+}
+
+.section {
+    padding: 3rem 1rem;
+    text-align: center;
+    transform-style: preserve-3d;
+}
+
+.section.dark {
+    background: #000;
+    color: #fff;
+}
+
+.section.dark h2 {
+    margin-bottom: 30px; /* Adjust this value as needed */
+}
+
+.section.dark p.fade-in-out {
+    margin-top: 30px; /* Adjust this value as needed */
+}
+
+.section.light {
+    background: #fff;
+    color: #000;
+}
+
+.section.light h2 {
+    margin-bottom: 30px; /* Adjust this value to control the space below the h2 element */
+}
+
+.section.light p {
+    margin-top: 30px; /* Adjust this value to control the space above the p element */
+}
+
+/* Animation Effects */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2[data-animation="fadeIn"],
+p[data-animation="fadeIn"] {
+    opacity: 0; /* Start invisible */
+    animation: fadeIn 2s ease-out forwards; /* Ensure the element remains visible after animation */
+}
+
+h2[data-animation="fadeIn"] {
+    font-size: 2.5rem;
+    transform: rotateX(-5deg);
+}
+
+p[data-animation="fadeIn"] {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    transform: rotateX(5deg);
+}
+
+@keyframes fadeInOut {
+    0%, 100% { opacity: 0; }
+    50% { opacity: 1; }
+}
+
+.fade-in-out {
+    animation: fadeInOut 5s infinite;
+}
+
+.typing {
+    overflow: hidden; /* Ensures the text doesn’t overflow */
+    white-space: nowrap; /* Keeps text in a single line */
+    border-right: 4px solid #fff; /* Cursor */
+    animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #fff; }
+}
+
+/* Tape Styling */
+.tape {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff; /* White background for the tape */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Shadow for 3D effect */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top */
+    transform: perspective(800px) rotateX(0deg); /* 3D perspective */
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    gap: 15px; /* Space between buttons */
+}
+
+.nav-button {
+    display: block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-decoration: none;
+    color: #000;
+    background: #fff;
+    border: 2px solid #000;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for 3D effect */
+    transition: background 0.3s, color 0.3s, transform 0.3s;
+    text-align: center;
+}
+
+.nav-button:hover {
+    background: #000;
+    color: #fff;
+    transform: translateY(-5px) scale(1.05); /* Lift and zoom effect */
+}
+
+.nav-button:active {
+    transform: translateY(1px) scale(1); /* Slight press effect */
+}
+
+/* Search Container Styling */
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-input {
+    border: 2px solid #000;
+    padding: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    width: 200px;
+    background: #fff;
+    color: #000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for 3D effect */
+    transition: box-shadow 0.3s;
+}
+
+.search-input:focus {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on focus */
+    outline: none; /* Remove default outline */
+}
+
+.search-button {
+    background: #000;
+    border: 2px solid #000;
+    color: #fff;
+    padding: 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for 3D effect */
+    transition: background 0.3s, transform 0.3s;
+}
+
+.search-button:hover {
+    background: #333;
+    transform: scale(1.1); /* Slight zoom effect on hover */
+}
+
+.search-button:active {
+    transform: scale(0.95); /* Slight press effect */
+}
